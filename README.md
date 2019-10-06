@@ -1,2 +1,2 @@
-# NU_Phython
-NU Phyton Course
+# NU_Python
+NU Python Course
