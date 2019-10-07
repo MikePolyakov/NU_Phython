@@ -39,6 +39,6 @@ while user_choice == 'Y':
     print('количество ошибок =', 5 - true_answer)
     print('процент правильных ответов =', true_answer * 20, '%')
     print('процент неправильных ответов = ', 100 - true_answer * 20, '%')
-    user_choice = input('Если хотите повторить, нажмите  Y')
+    user_choice = input('Если хотите повторить, нажмите  Y ')
     if user_choice != 'Y':
         break
