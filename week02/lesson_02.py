@@ -75,3 +75,21 @@ while school_class <= 11:
     print(school_class)
     school_class += 1
 print('end')
+
+
+# в каком году родился А.С.Пушкин?
+answer = ''
+while answer != '1799':
+    answer = input('в каком году родился А.С.Пушкин? ')
+    while not answer.isdigit():
+        print('Пожалуйста, используйте только цифры.')
+        answer = input('в каком году родился А.С.Пушкин? ')
+    if int(answer) < 1799:
+        print('Неверно!!! Попробуйте еще раз, но более поздний год.')
+        answer = 'wrong'
+    elif int(answer) > 1799:
+        print(' Неверно!!! Попробуйте еще раз, но более ранний год.')
+        answer = 'wrong'
+    else:
+        break
+print('Вы угадали првильно!!! Пушкин родился в', answer, '.')
