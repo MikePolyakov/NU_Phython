@@ -12,7 +12,7 @@ while not born_year.isdigit():
 born_year = int(born_year)
 if born_year == 1799:
     born_day = input('Напишите день рождения А.С.Пушкина. ')
-    if born_day == 'May 26':
+    if born_day == '26':
         print('Верно')
     else:
         print('Неверный день рождения')

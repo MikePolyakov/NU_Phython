@@ -8,7 +8,7 @@ while born_year != '1799':
     born_year = input('Напишите год рождения А.С.Пушкина. ')
 
 born_day = ''
-while born_day != 'May 26':
+while born_day != '26':
     born_day = input('Напишите день рождения А.С.Пушкина. ')
 
 print('Верно')
