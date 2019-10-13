@@ -1,0 +1,4 @@
+1. list.copy(), list.count(x), list.insert(i, x), list.remove(x), list.sort([key=функция])
+2. dict.copy(), dict.keys(), dict.items(), dict.update([other]), dict.get(key[, default])
+3. set.add(elem), set.remove(elem), set.union(other, ...), set.intersection(other, ...), set.difference(other, ...)
+4. S1 + S2, len(S), S.find(str, [start],[end]), S.capitalize(), S.strip([chars])
