@@ -42,12 +42,12 @@ months_list = (
     'октября',
     'ноября',
     'декабря')
-questions = 5
-choice_list = random.sample(famous_list, questions)
 user_choice = 'Y'
 while user_choice == 'Y':
+    questions = 5
+    random_list = random.sample(famous_list, questions)
     true_answer = 0
-    for element in choice_list:
+    for element in random_list:
         birthday = input(f'Введите день рождения {element[0]}а в формате dd.mm.yyyy: ')
         if birthday == element[1]:
             true_answer += 1
