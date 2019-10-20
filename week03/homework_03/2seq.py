@@ -21,3 +21,12 @@ for i in range(len(digit_list)):
         new_list.append(digit_list[i])
 print('Результат: ',  end='')
 print(*new_list, sep=', ')
+
+initial_input = input('Введите элементы списка через запятую: ')
+digit_list = initial_input.split(',')
+new_list = []
+for i in digit_list:
+    if digit_list.count(i) == 1:
+        new_list.append(i)
+print('Результат: ',  end='')
+print(*new_list, sep=', ')
