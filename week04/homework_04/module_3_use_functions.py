@@ -1,5 +1,5 @@
+# МОДУЛЬ 3
 """
-МОДУЛЬ 3
 Программа "Личный счет"
 Описание работы программы:
 Пользователь запускает программу у него на счету 0
@@ -43,7 +43,7 @@ def rounding(value):
 
 
 def refill_account(old_balance):
-    add_value = input('Введите сумму пополения: ')
+    add_value = input('Введите сумму пополнения: ')
     if ',' in add_value:
         add_value = add_value.replace(',', '.')
     add_value = float(add_value)
@@ -53,26 +53,26 @@ def refill_account(old_balance):
     return old_balance + round_add_value[4]
 
 
-def purchase(old_balance, old_number):
+def purchase(money, number):
     price = float(input('Введите сумму покупки: '))
     round_price = rounding(price)
     print(f'Цена покупки {round_price[1]} руб {round_price[3]} коп')
-    if old_balance < price:
+    if money < round_price[4]:
         print('На покупку не хватает денег')
         history = {}
-        return old_number, old_balance, history
+        return number, money, history
     else:
-        old_number += 1
+        number += 1
         purchase_name = input('Введите название покупки, например (еда) ')
-        history = dict([(old_number, (purchase_name, round_price[4]))])
-        old_balance -= round_price[4]
-        old_balance = round(old_balance, 2)
-        return old_number, old_balance, history
+        history = dict([(number, (purchase_name, round_price[4]))])
+        money -= round_price[4]
+        money = round(money, 2)
+        return number, money, history
 
 def hisory_of_purchase(history):
     for element in history.keys():
         round_price = rounding(history[element][1])
-        print(history[element][0], f'---> {round_price[1]} руб {round_price[3]} коп')
+        print(f'{element}: {history[element][0]} стоимостью {round_price[1]} руб {round_price[3]} коп')
 
 
 balance = float(0)
