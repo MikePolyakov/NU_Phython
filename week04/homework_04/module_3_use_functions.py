@@ -43,10 +43,7 @@ def rounding(value):
 
 
 def refill_account(old_balance):
-    add_value = input('Введите сумму пополнения: ')
-    if ',' in add_value:
-        add_value = add_value.replace(',', '.')
-    add_value = float(add_value)
+    add_value = float(input('Введите сумму пополнения: '))
     round_add_value = rounding(add_value)
     print(f'На Ваш счет будет добавлено {round_add_value[1]} руб {round_add_value[3]} коп')
     print('-------------------')
