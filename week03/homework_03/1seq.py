@@ -15,3 +15,12 @@ while i <= number_of_elements:
     i += 1
 digit_list.sort()
 print(digit_list)
+
+number_of_elements = int(input('Введите количество элементов: '))
+digit_list = []
+for i in range(number_of_elements):
+    number = int(input('Введите число'))
+    digit_list.append(number)
+
+digit_list.sort()
+print(digit_list)
