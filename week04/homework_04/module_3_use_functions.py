@@ -29,48 +29,55 @@
 """
 
 
-def rounding_sum(value):
+def rounding(value):
     kopeyka = abs(value * 100)
     ruble = int(kopeyka // 100)
-    kopeyka = abs(value) - ruble
-    kopeyka = int(float('{0:.10}'.format(kopeyka)) * 100)
-    if kopeyka == 0:
-        kopeyka = str('00')
-    elif kopeyka < 10:
-        kopeyka = '0' + str(kopeyka)
+    kopeyka = int(kopeyka - ruble * 100)
+    if kopeyka < 10:
+        str_kopeyka = '0' + str(kopeyka)
     else:
-        kopeyka = str(kopeyka)
-    ruble_and_kopeyka = dict([(1, ruble), (2, kopeyka)])
+        str_kopeyka = str(kopeyka)
+    value = ruble + int(str_kopeyka) / 100
+    ruble_and_kopeyka = dict([(1, ruble), (2, kopeyka), (3, str_kopeyka), (4, value)])
     return ruble_and_kopeyka
 
 
 def refill_account(old_balance):
-    add_value = float(input('Введите сумму пополения: '))
-    round_add_value = rounding_sum(add_value)
-    print(f'На Ваш счет будет добавлено {round_add_value[1]} руб {round_add_value[2]} коп')
+    add_value = input('Введите сумму пополения: ')
+    if ',' in add_value:
+        add_value = add_value.replace(',', '.')
+    add_value = float(add_value)
+    round_add_value = rounding(add_value)
+    print(f'На Ваш счет будет добавлено {round_add_value[1]} руб {round_add_value[3]} коп')
     print('-------------------')
-    if int(round_add_value[2]) / 100 > 100:
-        kopeyka = (int(round_add_value[2]) - 100) / 100
-        ruble = round_add_value[1] + 1
-        old_balance += ruble + kopeyka
-        return old_balance
-    return old_balance + round_add_value[1] + int(round_add_value[2]) / 100
+    return old_balance + round_add_value[4]
 
 
-def purchase(old_balance):
+def purchase(old_balance, old_number):
     price = float(input('Введите сумму покупки: '))
-    round_price = rounding_sum(price)
-    print(f'Цена покупки {round_price[1]} руб {round_price[2]} коп')
+    round_price = rounding(price)
+    print(f'Цена покупки {round_price[1]} руб {round_price[3]} коп')
     if old_balance < price:
         print('На покупку не хватает денег')
-        return old_balance
+        history = {}
+        return old_number, old_balance, history
     else:
-        expence_name = input('Введите название покупки, например (еда)')
-        expence_history = dict([(1, ruble), (2, kopeyka)])
+        old_number += 1
+        purchase_name = input('Введите название покупки, например (еда) ')
+        history = dict([(old_number, (purchase_name, round_price[4]))])
+        old_balance -= round_price[4]
+        old_balance = round(old_balance, 2)
+        return old_number, old_balance, history
 
+def hisory_of_purchase(history):
+    for element in history.keys():
+        round_price = rounding(history[element][1])
+        print(history[element][0], f'---> {round_price[1]} руб {round_price[3]} коп')
 
 
 balance = float(0)
+purchase_history = {}
+purchase_number = 0
 while True:
     print('1. пополнение счета')
     print('2. покупка')
@@ -81,16 +88,24 @@ while True:
     choice = input('Выберите пункт меню ')
     if choice == '1':
         balance = refill_account(balance)
-        round_value = rounding_sum(balance)
-        print(f'У Вас на счете {round_value[1]} руб {round_value[2]} коп')
+        round_value = rounding(balance)
+        print(f'У Вас на счете {round_value[1]} руб {round_value[3]} коп')
         print('-------------------')
     elif choice == '2':
-        balance = purchase(balance)
-        round_value = rounding_sum(balance)
-        print(f'У Вас на счете {round_value[1]} руб {round_value[2]} коп')
+        purchase_number, balance, new_purchase = purchase(balance, purchase_number)
+        round_value = rounding(balance)
+        print(f'У Вас на счете {round_value[1]} руб {round_value[3]} коп')
+        purchase_history.update(new_purchase)
         print('-------------------')
     elif choice == '3':
-        pass
+        if purchase_number == 0:
+            print('-------------------')
+            print('У Вас нет истории покупок.')
+            print('-------------------')
+        else:
+            print('-------------------')
+            hisory_of_purchase(purchase_history)
+            print('-------------------')
     elif choice == '4':
         break
     else:
