@@ -1,9 +1,8 @@
-"""
-Программа викторина будет задавать нам вопросы несколько раз
-"""
+# модуль где лежат все функции
 import random
 
-def get_person_and_question():
+
+def get_random_person():
     FAMOUS_PEOPLE = {'Александр Сергеевич Пушнин': '26.06.1799',
                      'Михаил Юрьевич Лермонтов': '15.10.1814',
                      'Сергей Александрович Есенин': '03.10.1895',
@@ -16,6 +15,11 @@ def get_person_and_question():
                      'Юрий Алексеевич Гагарин': '09.03.1934'}
 
     name, date = random.choice(list(FAMOUS_PEOPLE.items()))
+    return name, date
+
+
+def get_person_and_question():
+    name, date = get_random_person()
 
     answer = input(f'Когда родился {name} ')
 
@@ -24,11 +28,3 @@ def get_person_and_question():
         print('Верно')
     else:
         print('Неверно')
-
-
-rounds = int(input('Сколько раз вы хотите играть?'))
-
-for i in range(rounds):
-    get_person_and_question()
-
-print('Пока!')

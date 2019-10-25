@@ -13,3 +13,4 @@ FAMOUS_PEOPLE = {'Александр Сергеевич Пушнин': '26.06.17
 
 name, date = random.choice(list(FAMOUS_PEOPLE.items()))
 print(name, date)
+

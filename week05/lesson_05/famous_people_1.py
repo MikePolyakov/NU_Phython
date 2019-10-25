@@ -17,13 +17,5 @@ def get_random_person():
     return name, date
 
 
-def get_person_and_question():
-    name, date = get_random_person()
-
-    answer = input(f'Когда родился {name} ')
-
-    # Если введенный год совпадает с правильным
-    if answer == date:
-        print('Верно')
-    else:
-        print('Неверно')
+name, date = get_random_person()
+print(name, date)
