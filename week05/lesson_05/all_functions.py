@@ -30,4 +30,4 @@ def get_person_and_question():
         print('Неверно')
 
 
-print(__name__)
+print('__name__ = ', __name__)
