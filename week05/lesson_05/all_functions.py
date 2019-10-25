@@ -28,3 +28,6 @@ def get_person_and_question():
         print('Верно')
     else:
         print('Неверно')
+
+
+print(__name__)

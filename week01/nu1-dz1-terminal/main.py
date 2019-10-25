@@ -1,6 +1,6 @@
 import random
 
-words = ['neural', 'random', 'python', 'hello', 'lesson']
+words = ['neural', 'random', 'python', 'hello', 'lesson_05']
 
 words_choices = random.sample(words, random.randint(1, 3))
 
