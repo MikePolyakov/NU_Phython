@@ -1,15 +1,16 @@
 # Main menu
 import os
+import shutil
 from os import path
-
 import os_name
 import quiz
+from bank_account import personal_account
 
 while True:
     print('*' * 30)
     print(' 1. создать папку ')
-    print(' 2. удалить (файл/папку)')
-    print(' 3. копировать (файл/папку)')
+    print(' 2. удалить папку')
+    print(' 3. копировать файл')
     print(' 4. просмотр содержимого рабочей директории')
     print(' 5. посмотреть только папки')
     print(' 6. посмотреть только файлы')
@@ -30,7 +31,8 @@ while True:
         folder_name = input('Какую папку хотите удалить? ')
         os.rmdir(folder_name)
     elif choice == '3':
-        pass
+        folder_name = input('Какой файл хотите копировать? ')
+        shutil.copy(folder_name, 'file_copy')
     elif choice == '4':
         pass
     elif choice == '5':
@@ -44,7 +46,7 @@ while True:
     elif choice == '9':
         print(quiz.quiz())
     elif choice == '10':
-        pass
+        personal_account()
     elif choice == '11':
         pass
     elif choice == '12':
