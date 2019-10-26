@@ -1,6 +1,9 @@
 # Main menu
-import quiz, os_name
+import os
+from os import path
 
+import os_name
+import quiz
 
 while True:
     print('*' * 30)
@@ -20,9 +23,12 @@ while True:
 
     choice = input('Выберите пункт меню ')
     if choice == '1':
-        pass
+        folder_name = input('Дайте имя папки - ')
+        if not path.exists(folder_name):
+            os.mkdir(folder_name)
     elif choice == '2':
-        pass
+        folder_name = input('Какую папку хотите удалить? ')
+        os.rmdir(folder_name)
     elif choice == '3':
         pass
     elif choice == '4':
