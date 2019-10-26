@@ -2,6 +2,7 @@
 import os
 import shutil
 from os import path
+from os import walk
 import os_name
 import quiz
 from bank_account import personal_account
@@ -33,15 +34,25 @@ while True:
         folder_name = input('Какой файл хотите копировать? ')
         shutil.copy(folder_name, 'file_copy')
     elif choice == '4':
-        pass
+        directory = os.getcwd()
+        print(f'В текущей директории {directory} находятся: ')
+        print(*os.listdir(directory))
     elif choice == '5':
-        pass
+        only_folders = []
+        for (dirpath, dirnames, filenames) in walk(os.getcwd()):
+            only_folders.extend(dirnames)
+            break
+        print(f'В текущей директории находятся папки:', *only_folders)
     elif choice == '6':
-        pass
+        only_files = []
+        for (dirpath, dirnames, filenames) in walk(os.getcwd()):
+            only_files.extend(filenames)
+            break
+        print(f'В текущей директории находятся файлы:', *only_files)
     elif choice == '7':
         print(os_name.my_os())
     elif choice == '8':
-        print('Author is id2k1149@gmail.com')
+        print('информация об авторе - id2k1149@gmail.com')
     elif choice == '9':
         print(quiz.quiz())
     elif choice == '10':
