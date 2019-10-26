@@ -18,8 +18,7 @@ while True:
     print(' 8. создатель программы')
     print(' 9. играть в викторину')
     print('10. мой банковский счет')
-    print('11. смена рабочей директории')
-    print('12. выход ')
+    print('11. выход ')
     print('*' * 30)
 
     choice = input('Выберите пункт меню ')
@@ -42,14 +41,12 @@ while True:
     elif choice == '7':
         print(os_name.my_os())
     elif choice == '8':
-        pass
+        print('Author is id2k1149@gmail.com')
     elif choice == '9':
         print(quiz.quiz())
     elif choice == '10':
         personal_account()
     elif choice == '11':
-        pass
-    elif choice == '12':
         break
     else:
         print('Неверный пункт меню')
