@@ -31,3 +31,4 @@ def get_person_and_question():
 
 
 print('__name__ = ', __name__)
+print(get_person_and_question())

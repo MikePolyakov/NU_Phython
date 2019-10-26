@@ -1,4 +1,12 @@
+# Main menu
+import os
+from os import path
+
+import os_name
+import quiz
+
 while True:
+    print('*' * 30)
     print(' 1. создать папку ')
     print(' 2. удалить (файл/папку)')
     print(' 3. копировать (файл/папку)')
@@ -11,12 +19,16 @@ while True:
     print('10. мой банковский счет')
     print('11. смена рабочей директории')
     print('12. выход ')
+    print('*' * 30)
 
     choice = input('Выберите пункт меню ')
     if choice == '1':
-        pass
+        folder_name = input('Дайте имя папки - ')
+        if not path.exists(folder_name):
+            os.mkdir(folder_name)
     elif choice == '2':
-        pass
+        folder_name = input('Какую папку хотите удалить? ')
+        os.rmdir(folder_name)
     elif choice == '3':
         pass
     elif choice == '4':
@@ -26,11 +38,11 @@ while True:
     elif choice == '6':
         pass
     elif choice == '7':
-        pass
+        print(os_name.my_os())
     elif choice == '8':
         pass
     elif choice == '9':
-        pass
+        print(quiz.quiz())
     elif choice == '10':
         pass
     elif choice == '11':
