@@ -3,7 +3,23 @@ import os
 import shutil
 import os_name
 import quiz
-from bank_account import personal_account
+from my_banc_account import personal_account
+
+
+#  посмотреть файлы/папки
+def f_list(param):
+    only_f = []
+    for (dirpath, dirnames, filenames) in os.walk(os.getcwd()):
+        if param == 'dir_names':
+            only_f.extend(dirnames)
+            f = 'папки'
+        elif param == 'file_names':
+            only_f.extend(filenames)
+            f = 'файлы'
+        break
+    print(f'В текущей директории находятся {f}:')
+    for i in range(len(only_f)):
+        print((only_f[i]))
 
 while True:
     print('*' * 30)
@@ -36,19 +52,12 @@ while True:
     elif choice == '4':
         directory = os.getcwd()
         print(f'В текущей директории {directory} находятся: ')
-        print(*os.listdir(directory))
+        for i in range(len(os.listdir(directory))):
+            print(os.listdir(directory)[i])
     elif choice == '5':
-        only_folders = []
-        for (dirpath, dirnames, filenames) in os.walk(os.getcwd()):
-            only_folders.extend(dirnames)
-            break
-        print(f'В текущей директории находятся папки:', *only_folders)
+        f_list('dir_names')
     elif choice == '6':
-        only_files = []
-        for (dirpath, dirnames, filenames) in os.walk(os.getcwd()):
-            only_files.extend(filenames)
-            break
-        print(f'В текущей директории находятся файлы:', *only_files)
+        f_list('file_names')
     elif choice == '7':
         print(os_name.my_os())
     elif choice == '8':
