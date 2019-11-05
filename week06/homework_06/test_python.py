@@ -1,5 +1,5 @@
 """
-тесты для встроенных функций filter, map, sorted,
+тесты для встроенных функций filter, map, sorted
 """
 from math import pi, sqrt, pow, hypot
 
