@@ -93,7 +93,7 @@ def save_names_to_file():
         if i < len(dirs_list) - 1:
             dirs_str += ', '
 
-    with open('listdir.txt', 'w', encoding='utf-8') as f:
+    with open('listdir.txt', 'w') as f:
         f.write(f'{files_str}\n')
         f.write(f'{dirs_str}\n')
 

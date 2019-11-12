@@ -51,10 +51,10 @@ def run_bill():
 
         choice = input('Выберите пункт меню ')
         if choice == '1':
-            cost = int(input('Введите сумму ЦЕЛЫМ ЧИСЛОМ'))
+            cost = int(input('Введите сумму ЦЕЛЫМ ЧИСЛОМ '))
             bill_sum += cost
         elif choice == '2':
-            cost = int(input('Введите сумму покупки ЦЕЛЫМ ЧИСЛОМ'))
+            cost = int(input('Введите сумму покупки ЦЕЛЫМ ЧИСЛОМ '))
             if cost > bill_sum:
                 print('Недостаточно средств')
             else:

@@ -13,7 +13,7 @@ def separator(count=30):
 
 def data_reading(file_name, data_param):
     if os.path.exists(file_name):
-        with open(file_name, 'rb', encoding='utf-8') as f:
+        with open(file_name, 'rb') as f:
             data = pickle.load(f)
     elif data_param == 'int':
         data = 0
@@ -23,5 +23,5 @@ def data_reading(file_name, data_param):
 
 
 def data_writing(file_name, data):
-    with open(file_name, 'wb', encoding='utf-8') as f:
+    with open(file_name, 'wb') as f:
         pickle.dump(data, f)
